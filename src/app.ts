@@ -7,9 +7,9 @@ const app = express();
 app.use(express.json());
 app.use(routes);
 
-createConnection()
-  .then(() => {
+createConnection().then(() => {
     console.log("Connected to the database");
+    import("./server")
   })
   .catch((error) => console.log(error));
 
