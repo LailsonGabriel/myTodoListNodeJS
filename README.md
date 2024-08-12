@@ -16,6 +16,8 @@ Este backend fornece uma API para gerenciar tarefas e autenticação de usuário
 
 ## 🛠️ Rotas da API
 
+## API Rodando atualmente em: https://mytodolistnodejs.onrender.com
+
 ### `GET /tasks`
 
 - **Descrição**: Obtém a lista de tarefas.
