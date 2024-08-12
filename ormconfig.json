@@ -3,7 +3,7 @@
   "host": "localhost",
   "port": 3306,
   "username": "root",
-  "password": "",
+  "password": "Lailson-29",
   "database": "todo_list",
   "synchronize": true,
   "logging": false,

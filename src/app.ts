@@ -1,16 +1,20 @@
 import express from "express";
 import "reflect-metadata";
-import { createConnection } from "typeorm";
 import routes from "./routes";
+import AppDataSource from "./data-source";
 
 const app = express();
 app.use(express.json());
 app.use(routes);
 
-createConnection().then(() => {
-    console.log("Connected to the database");
-    import("./server")
-  })
-  .catch((error) => console.log(error));
+const PORT = process.env.PORT || 3000;
+
+AppDataSource.initialize().then(async () => {
+  console.log('Database connection success');
+}).catch((err) => console.log(err));
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 export default app;

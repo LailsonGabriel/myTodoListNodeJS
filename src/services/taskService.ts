@@ -1,12 +1,9 @@
-import { getCustomRepository } from "typeorm";
-import { TaskRepository } from "../repositories/taskRepository";
-import { UserRepository } from "../repositories/userRepository";
 import { Task } from "../entities/task";
 import { User } from "../entities/user";
-
+import AppDataSource from "../data-source";
 export class TaskService {
-  private taskRepository = getCustomRepository(TaskRepository);
-  private userRepository = getCustomRepository(UserRepository);
+  private taskRepository = AppDataSource.getRepository(Task);
+  private userRepository = AppDataSource.getRepository(User);
 
   async getTasksByUser(cpf: string): Promise<Task[]> {
     const user = await this.userRepository.findOne({ where: { cpf }, relations: ["tasks"] });

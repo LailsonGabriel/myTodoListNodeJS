@@ -1,10 +1,8 @@
 
-import { getCustomRepository } from "typeorm";
-import { UserRepository } from "../repositories/userRepository";
 import { User } from "../entities/user";
-
+import AppDataSource from "../data-source";
 export class AuthService {
-  private userRepository = getCustomRepository(UserRepository);
+  private userRepository = AppDataSource.getRepository(User);
 
   async login(cpf: string): Promise<{ user: User; isNew: boolean }> {
     let user = await this.userRepository.findOne({ where: { cpf } });
