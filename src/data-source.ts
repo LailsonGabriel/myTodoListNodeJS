@@ -5,12 +5,12 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const AppDataSource = new DataSource({
-  type: "postgres",
-  host: process.env.DB_HOST || "localhost",
-  port: parseInt(process.env.DB_PORT || "3306", 10),
-  username: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME || "todoList",
+  type: "mysql",
+  host: process.env.HOST_DB || "localhost",
+  port: parseInt(process.env.PORT_DB || "3306", 10),
+  username: process.env.USER_DB,
+  password: process.env.PASS_DB,
+  database: process.env.NAME_DB || "todoList",
   entities: [User, Task],
   synchronize: false,
   logging: false,
