@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const AppDataSource = new DataSource({
-  type: "mysql",
+  type: process.env.TYPE_DB as "mysql" | "mariadb" | "postgres" | "sqlite",
   host: process.env.HOST_DB || "localhost",
   port: parseInt(process.env.PORT_DB || "3306", 10),
   username: process.env.USER_DB,
